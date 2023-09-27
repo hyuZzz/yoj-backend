@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MainApplicationTests {
 
+    //启动测试
     @Resource
     private WxOpenConfig wxOpenConfig;
 
