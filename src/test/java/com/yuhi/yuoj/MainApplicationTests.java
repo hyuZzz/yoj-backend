@@ -9,12 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 /**
  * 主类测试
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @SpringBootTest
 class MainApplicationTests {
-    //再再次测试git上传
+    //再再再次测试git上传
 
     //启动测试
     @Resource
