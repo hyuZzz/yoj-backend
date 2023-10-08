@@ -72,7 +72,7 @@
 
 ## 快速上手
 
-> 所有需要修改的地方鱼皮都标记了 `todo`，便于大家找到修改的位置~
+> 所有需要修改的地方都标记了 `todo`，便于大家找到修改的位置~
 
 ### MySQL 数据库
 
@@ -95,7 +95,7 @@ spring:
 
 ### Redis 分布式登录
 
-1）修改 `application.yml` 的 Redis 配置为你自己的：
+1）修改 `application.yml` 的 Redis 配置为自己的：
 
 ```yml
 spring:
@@ -151,7 +151,6 @@ PUT post_v1
 }
 ```
 
-这步不会操作的话需要补充下 Elasticsearch 的知识，或者自行百度一下~
 
 3）开启同步任务，将数据库的帖子同步到 Elasticsearch
 
