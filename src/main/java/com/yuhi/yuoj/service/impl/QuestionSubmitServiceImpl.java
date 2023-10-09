@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yuhi.yuoj.common.ErrorCode;
 import com.yuhi.yuoj.constant.CommonConstant;
 import com.yuhi.yuoj.exception.BusinessException;
+import com.yuhi.yuoj.judge.JudgeService;
 import com.yuhi.yuoj.mapper.QuestionSubmitMapper;
 import com.yuhi.yuoj.model.dto.questionsubmit.QuestionSubmitAddRequest;
 import com.yuhi.yuoj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
@@ -22,27 +23,33 @@ import com.yuhi.yuoj.utils.SqlUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 
 /**
-* @author YUUU
-* @description 针对表【question_submit(题目提交)】的数据库操作Service实现
-* @createDate 2023-10-03 13:53:26
-*/
+ * @author YUUU
+ * @description 针对表【question_submit(题目提交)】的数据库操作Service实现
+ * @createDate 2023-10-03 13:53:26
+ */
 @Service
 public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper, QuestionSubmit>
-        implements QuestionSubmitService{
+        implements QuestionSubmitService {
 
     @Resource
     private QuestionService questionService;
 
     @Resource
     private UserService userService;
+
+    @Resource
+    @Lazy
+    private JudgeService judgeService;
 
     /**
      * 提交题目
@@ -77,10 +84,15 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         questionSubmit.setStatus(QuestionSubmitStatusEnum.WAITING.getValue());
         questionSubmit.setJudgeInfo("{}");
         boolean save = this.save(questionSubmit);
-        if (!save){
+        if (!save) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "数据插入失败");
         }
-        return questionSubmit.getId();
+        Long questionSubmitId = questionSubmit.getId();
+        //todo 执行判题服务
+        CompletableFuture.runAsync(() -> {
+            judgeService.doJudge(questionSubmitId);
+        });
+        return questionSubmitId;
     }
 
 
@@ -128,8 +140,9 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 
     /**
      * 获取问题提交视图对象分页列表
+     *
      * @param questionSubmitPage 问题提交分页对象
-     * @param loginUser 当前登录用户
+     * @param loginUser          当前登录用户
      * @return 问题提交视图对象分页列表
      */
     @Override

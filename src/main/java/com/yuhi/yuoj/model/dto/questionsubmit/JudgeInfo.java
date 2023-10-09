@@ -8,18 +8,35 @@ import lombok.Data;
 @Data
 public class JudgeInfo {
 
-    /**
-     * 时间限制（ms）
-     */
-    private Long timeLimit;
+//    /**
+//     * 时间限制（ms）
+//     */
+//    private Long timeLimit;
+//
+//    /**
+//     * 内存限制（KB）
+//     */
+//    private Long memoryLimit;
+//
+//    /**
+//     * 堆栈限制（KB）
+//     */
+//    private Long stackLimit;
 
     /**
-     * 内存限制（KB）
+     * 程序执行信息
      */
-    private Long memoryLimit;
+    private String message;
 
     /**
-     * 堆栈限制（KB）
+     * 消耗内存
      */
-    private Long stackLimit;
+    private Long memory;
+
+    /**
+     * 消耗时间（KB）
+     */
+    private Long time;
+
+
 }
