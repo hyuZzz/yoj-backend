@@ -28,10 +28,10 @@
 
 ## 项目介绍
 
-本项目是基于 Spring Boot + Spring Cloud Alibaba 微服务 + Docker + RabbitMQ + Vue 3 的 **编程算法题目在线评测系统**
+本项目是基于 Spring Boot + Spring Cloud Alibaba 微服务  + RabbitMQ + Vue 3 的 **编程算法题目在线评测系统**
 （简称OJ）。
 
-> 源项目来自编程导航（https://yupi.icu）
+前端源码地址：https://github.com/hyuZzz/yoj-frontend
 
 YOJ（Y OnlineJudge）系统是一个在线算法评测系统，用户可以选择题目、编写代码并提交代码进行评测，而且是高效、稳定的 OJ
 在线判题评测系统，它能够根据用户提交的代码、出题人预先设置的题目输入和输出用例，进行编译代码、运行代码、判断代码运行结果是否正确。
@@ -60,7 +60,7 @@ YOJ（Y OnlineJudge）系统是一个在线算法评测系统，用户可以选�
 ### 判题模块
 
 1. 提交判题：结果是否正确与错误
-2. 错误处理：内存益出、安全性、超时
+2. 错误处理：内存溢出、安全性、超时
 3. 代码沙箱：执行代码，返回执行信息
 4. 开放接口：提供一个独立的新服务
 
