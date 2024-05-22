@@ -1,0 +1,22 @@
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/shieroj-backend-common/pom.xml" />
+        <option value="$PROJECT_DIR$/shieroj-backend-model/pom.xml" />
+        <option value="$PROJECT_DIR$/shieroj-backend-judge-service/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-service-client/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-question-service/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-model/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-judge-service/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-file-service/pom.xml" />
+        <option value="$PROJECT_DIR$/yoj-backend-common/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

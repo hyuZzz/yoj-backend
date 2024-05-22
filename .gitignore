@@ -1,0 +1,9 @@
+# Project exclude paths
+/yoj-backend-common/target/
+/yoj-backend-file-service/target/
+/yoj-backend-gateway/target/
+/yoj-backend-judge-service/target/
+/yoj-backend-model/target/
+/yoj-backend-question-service/target/
+/yoj-backend-service-client/target/
+/yoj-backend-user-service/target/
